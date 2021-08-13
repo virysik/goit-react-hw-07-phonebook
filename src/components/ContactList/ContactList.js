@@ -1,7 +1,7 @@
 import { Ul } from './ContactList.styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteContact } from '../../redux/phonebook/phonebook-actions'
-import { getContactsArr } from '../../redux/phonebook/phonebook-selectors'
+import { getContactsArr } from '../../redux/phonebook/contacts-selectors'
 import ContactListElement from '../ContactListElement'
 
 function ContactList() {
