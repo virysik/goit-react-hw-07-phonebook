@@ -1,16 +1,11 @@
 import { Ul } from './ContactList.styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
 import { contactsOperations, contactsSelectors } from 'redux/phonebook'
 import ContactListElement from '../ContactListElement'
 
 function ContactList() {
   const contactsArr = useSelector(contactsSelectors.getContactsArr)
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(contactsOperations.fetchContacts())
-  }, [dispatch])
 
   return (
     <Ul>
