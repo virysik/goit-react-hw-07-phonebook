@@ -1,6 +1,6 @@
-import { Ul } from './ContactList.styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { contactsOperations, contactsSelectors } from 'redux/phonebook'
+import { Ul } from './ContactList.styles'
 import ContactListElement from '../ContactListElement'
 
 function ContactList() {

@@ -8,11 +8,13 @@ import { Toaster } from 'react-hot-toast'
 import ContactForm from './components/ContactForm'
 import Filter from './components/Filter'
 import ContactList from './components/ContactList'
+import Spinner from './components/Spinner'
 
 function App() {
   const contacts = useSelector(contactsSelectors.getItems)
+  const status = useSelector(contactsSelectors.getStatus)
   const dispatch = useDispatch()
-
+  console.log(status)
   useEffect(() => {
     dispatch(contactsOperations.fetchContacts())
   }, [dispatch])
@@ -23,7 +25,7 @@ function App() {
         <TiContacts /> Phonebook
       </Title>
       <ContactForm />
-      {contacts.length > 0 && (
+      {contacts.length > 0 ? (
         <>
           <TitleContacts>
             <IoIosContacts />
@@ -32,6 +34,8 @@ function App() {
           <Filter />
           <ContactList />
         </>
+      ) : (
+        <Spinner />
       )}
       <Toaster />
     </Container>

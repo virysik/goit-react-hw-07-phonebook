@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { Label, Input } from './Filter.styles'
 import { changeFilter } from '../../redux/phonebook/phonebook-reducer'
+import { Label, Input } from './Filter.styles'
 
 function Filter() {
   const dispatch = useDispatch()
