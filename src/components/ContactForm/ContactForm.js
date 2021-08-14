@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { contactsOperations, contactsSelectors } from 'redux/phonebook'
 import { Form, Label, Input, Button } from './ContactForm.styles'
-import { getItems } from '../../redux/phonebook/contacts-selectors'
-import { fetchAddContact } from '../../redux/phonebook/contacts-operations'
 import { GiButterflyWarning } from 'react-icons/gi'
 import toast from 'react-hot-toast'
 
 function ContactForm() {
   const [name, setName] = useState('')
   const [number, setNumber] = useState('')
-  const items = useSelector(getItems)
+  const items = useSelector(contactsSelectors.getItems)
   const dispatch = useDispatch()
 
   const handleInputChange = (e) => {
@@ -47,7 +46,7 @@ function ContactForm() {
       resetFormInputs()
       return
     }
-    dispatch(fetchAddContact({ name, number }))
+    dispatch(contactsOperations.fetchAddContact({ name, number }))
     resetFormInputs()
   }
 
