@@ -31,21 +31,33 @@ function ContactForm() {
     setNumber('')
   }
 
+  const showAlert = (value) => {
+    toast(`${value} is already in contacts`, {
+      style: { color: '#456173' },
+      icon: <GiButterflyWarning />,
+    })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const normalizedName = name.toLowerCase()
     const contactExists = items.find(
       ({ name }) => name.toLowerCase() === normalizedName,
     )
+    const numberExists = items.find((item) => item.number === number)
 
     if (contactExists) {
-      toast(`${name} is already in contacts`, {
-        style: { color: '#456173' },
-        icon: <GiButterflyWarning />,
-      })
+      showAlert(name)
       resetFormInputs()
       return
     }
+
+    if (numberExists) {
+      showAlert(number)
+      resetFormInputs()
+      return
+    }
+
     dispatch(contactsOperations.fetchAddContact({ name, number }))
     resetFormInputs()
   }
