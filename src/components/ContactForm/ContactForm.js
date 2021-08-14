@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Form, Label, Input, Button } from './ContactForm.styles'
-import { addContact } from '../../redux/phonebook/phonebook-actions'
 import { getItems } from '../../redux/phonebook/contacts-selectors'
+import { fetchAddContact } from '../../redux/phonebook/contacts-operations'
 import { GiButterflyWarning } from 'react-icons/gi'
-import { nanoid } from 'nanoid'
 import toast from 'react-hot-toast'
 
 function ContactForm() {
@@ -48,8 +47,7 @@ function ContactForm() {
       resetFormInputs()
       return
     }
-    const id = nanoid()
-    dispatch(addContact({ name, number, id }))
+    dispatch(fetchAddContact({ name, number }))
     resetFormInputs()
   }
 
