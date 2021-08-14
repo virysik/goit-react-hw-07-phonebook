@@ -12,9 +12,8 @@ import Spinner from './components/Spinner'
 
 function App() {
   const contacts = useSelector(contactsSelectors.getItems)
-  const status = useSelector(contactsSelectors.getStatus)
   const dispatch = useDispatch()
-  console.log(status)
+
   useEffect(() => {
     dispatch(contactsOperations.fetchContacts())
   }, [dispatch])
