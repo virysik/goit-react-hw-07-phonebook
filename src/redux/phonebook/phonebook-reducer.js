@@ -30,11 +30,11 @@ const phonebookSlice = createSlice({
       state.status = null
       state.error = null
     },
-    [fetchContacts.pending]: (state, action) => {
+    [fetchContacts.pending]: (state) => {
       state.status = loading
       state.error = null
     },
-    [fetchContacts.rejected]: (state, action) => {
+    [fetchContacts.rejected]: (state) => {
       state.status = null
       state.error = error
     },
@@ -43,11 +43,11 @@ const phonebookSlice = createSlice({
       state.status = null
       state.error = null
     },
-    [fetchAddContact.pending]: (state, action) => {
+    [fetchAddContact.pending]: (state) => {
       state.status = loading
       state.error = null
     },
-    [fetchAddContact.rejected]: (state, action) => {
+    [fetchAddContact.rejected]: (state) => {
       state.status = null
       state.error = error
     },
@@ -56,11 +56,11 @@ const phonebookSlice = createSlice({
       state.status = null
       state.error = null
     },
-    [fetchDeleteContact.pending]: (state, action) => {
+    [fetchDeleteContact.pending]: (state) => {
       state.status = loading
       state.error = null
     },
-    [fetchDeleteContact.rejected]: (state, action) => {
+    [fetchDeleteContact.rejected]: (state) => {
       state.status = null
       state.error = error
     },
